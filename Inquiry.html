@@ -40,7 +40,7 @@
      <div class="inquiryform">
     <h2 style="text-align: center;"><strong>INQUIRY FORM</strong></h2>
     <hr>
-    <form id="inquiryform" onsubmit="return handleSubmit(event)">
+    <form id="inquiryform" action="success.html">
   <label for="name">Traveller Name</label>
   <input type="text" id="name" required><br>
   <div class="error" id="errorName"></div>
@@ -225,31 +225,5 @@
         document.getElementById("formoutput").textContent = "";
     }
 });
-
-function handleSubmit(event) {
-  event.preventDefault();
-
-  // Gather values
-  const formData = {
-    name: document.getElementById('name').value,
-    number: document.getElementById('number').value,
-    date: document.getElementById('date').value,
-    location: document.getElementById('location').value,
-    destination: document.getElementById('destination').value,
-    place: document.getElementById('place').value,
-    persons: document.getElementById('persons').value,
-    comment: document.getElementById('comment').value,
-    termsAccepted: document.getElementById('term').checked,
-  };
-
-  // Save to localStorage
-  localStorage.setItem("bookingData", JSON.stringify(formData));
-
-  // Redirect to success page
-  window.location.href = "success.html";
-  return false;
-}
-
-
 
 </script>
